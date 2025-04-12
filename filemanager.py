@@ -23,11 +23,16 @@ def delete():
     index=list.curselection()
     list.delete(index)
     
+def save():
+    s=asksaveasfile(defaultextension='.txt')
+    for i in list.get(0,END):
+        print(i,file=s)
+    list.delete(0,END)
 
 
 
 
-savebutton=Button(gui,text='Save')
+savebutton=Button(gui,text='Save', command=save)
 entrybox=Entry(gui)
 addbutton=Button(gui, text='Add', command=add)
 openbutton=Button(gui, text='Open', command=openfile)
